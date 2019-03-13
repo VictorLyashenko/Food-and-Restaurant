@@ -1,0 +1,41 @@
+.header_info {
+    margin-top: 4px;
+    margin-left: -48px;
+}
+
+.header_ico {
+    font-size: 18px;
+    color: $gold;
+    margin: 5px;
+}
+
+.position {
+    position: absolute;
+}
+
+.logo_img {
+    margin-left: -40px;
+    z-index: 2;
+}
+
+.menu li{
+    padding-top: 36px;
+    padding-left: 40px;
+}
+
+ .menu_item a {
+    font-family: 'Myriad Pro';
+    color: $white;
+    font-size: 17px;
+ }
+
+ .button_header {
+    color: $gold;
+    margin-left: 30px;
+    margin-top: 28px;
+    border: 2px solid $white;
+    border-radius: 5px;
+    width: 158px;
+    height: 41px;
+    align-items: center;
+ }

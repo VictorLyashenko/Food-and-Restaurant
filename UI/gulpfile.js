@@ -26,14 +26,14 @@ const path = {
     src: { //Пути откуда брать исходники
         html: 'src/pages/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
-        style: 'src/style/pages/*.scss',
+        style: 'src/style/main.scss',
         img: 'src/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         fonts: 'src/fonts/**/*.*'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         html: 'src/**/*.html',
         js: 'src/js/**/*.js',
-        style: 'src/style/pages/**/*.scss',
+        style: 'src/style/**/**/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
     },
@@ -104,6 +104,11 @@ gulp.task('image:build', function () {
         .pipe(reload({stream: true}));
 });
 
+gulp.task('fonts:build', function() {
+    gulp.src(path.src.fonts)
+        .pipe(gulp.dest(path.build.fonts))
+});
+
 gulp.task('watch', function(){
     watch([path.watch.html], function(event, cb) {
         gulp.start('html:build');
@@ -126,8 +131,8 @@ gulp.task('build', [
     'html:build',
     'js:build',
     'style:build',
-    // 'fonts:build',
-    'image:build'
+    // 'fonts:build'
+    // 'image:build'
 ]);
 
 gulp.task('webserver', function () {
